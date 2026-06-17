@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pilih Jadwal - Bioskop 7</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <header class="header">
+    <h1>Bioskop 7</h1>
+  </header>
+
+  <div class="main-card">
+    <div class="layout">
+
+      <!-- LEFT: POSTER + SINOPSIS -->
+      <div class="left-col">
+        <div class="poster-placeholder">
+          <div class="poster-title">SEKAWAN<br>LIMO 2<br><span style="font-size:13px;color:#ccc;">GUNUNG KLAWIH</span></div>
+        </div>
+        <div class="sinopsis-section">
+          <h3>Sinopsis</h3>
+          <p>
+            Tiga tahun sejak pendakian Gunung Madyopuro, persahabatan 5 Sekawan semakin erat.
+            Ketika mereka reuni di ulang tahun Angel (Ellea Candice) Putri Andrew (Indra Pramujito),
+            mereka menyaksikan keluarga itu terancam jadi tumbal pesugihan!
+            Berangkatlah mereka menemani Andrew ke Gunung Klawih. Namun, Juna (Benidictus Siregar)
+            menghilang ke dunia demit!
+          </p>
+        </div>
+      </div>
+
+      <!-- MIDDLE: FILM INFO -->
+      <div class="mid-col">
+        <div class="film-title">Sekawan Limo 2</div>
+        <div class="film-meta">Komedi, Horor &middot; 122 Menit &middot; 13+</div>
+
+        <div class="info-block">
+          <h4>Bahasa</h4>
+          <p>Ind-Indonesia</p>
+        </div>
+
+        <div class="info-block">
+          <h4>Aktor</h4>
+          <p>
+            Bayu Skak, Nadya Arina, Benidictus Siregar, Indra Pramujito,
+            Firza Valaza, Jihane Almira, Elsa Japasal, Joshua Suherman,
+            Cak Kartolo, Ning Tini, Audya Ananta, Ellea Candice, Cak Ukil,
+            Ferry Salim, Gis
+          </p>
+        </div>
+      </div>
+
+      <!-- RIGHT: DATE & TIME PICKER -->
+      <div class="right-col">
+        <div class="section-title" id="sectionTitle">1. &nbsp;Pilih Tanggal</div>
+
+        <!-- DATE BUTTONS -->
+        <div class="date-grid" id="dateGrid"></div>
+
+        <!-- TIME BUTTONS (hidden until date selected) -->
+        <div class="time-grid" id="timeGrid" style="display:none;"></div>
+
+        <!-- ACTION ROW -->
+        <div class="action-row" id="actionRow">
+          <span class="selected-label" id="selectedLabel"></span>
+          <button class="btn-primary" onclick="pilihKursi()">Pilih Kursi &rarr;</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <script src="pilih-jadwal.js"></script>
+</body>
+</html>

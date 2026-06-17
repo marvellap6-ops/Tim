@@ -1,0 +1,436 @@
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: #2e2e2e;
+  font-family: 'Segoe UI', Arial, sans-serif;
+  min-height: 100vh;
+}
+
+/* ================================
+   HEADER
+================================ */
+.header {
+  background: #3b6fa0;
+  padding: 16px 20px;
+}
+
+.header h1 {
+  font-size: 20px;
+  font-weight: 900;
+  letter-spacing: 2px;
+  color: #fff;
+  text-transform: uppercase;
+}
+
+/* ================================
+   MAIN CARD
+================================ */
+.main-card {
+  background: #fff;
+  margin: 0 auto;
+  max-width: 1100px;
+  padding: 24px 20px 48px;
+}
+
+/* ================================
+   LAYOUT GRID - DESKTOP 3 kolom
+================================ */
+.layout {
+  display: grid;
+  grid-template-columns: 280px 1fr 1fr;
+  gap: 28px;
+  align-items: start;
+}
+
+/* ================================
+   LEFT COL - POSTER & SINOPSIS
+================================ */
+.poster {
+  width: 100%;
+  aspect-ratio: 2/3;
+  object-fit: cover;
+  display: block;
+  background: #1a1a2e;
+}
+
+.poster-placeholder {
+  width: 100%;
+  aspect-ratio: 2/3;
+  background: linear-gradient(160deg, #1a1a2e 0%, #16213e 40%, #0f3460 70%, #1a472a 100%);
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding-bottom: 24px;
+  position: relative;
+  overflow: hidden;
+}
+
+.poster-placeholder::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100"><rect width="100" height="100" fill="%231a1a2e"/><circle cx="50" cy="30" r="20" fill="%230f3460" opacity="0.6"/><rect x="10" y="60" width="80" height="30" rx="4" fill="%23163e1a" opacity="0.5"/></svg>') center/cover;
+  opacity: 0.4;
+}
+
+.poster-title {
+  position: relative;
+  text-align: center;
+  color: #f9c74f;
+  font-size: 22px;
+  font-weight: 900;
+  letter-spacing: 1px;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.8);
+  line-height: 1.2;
+}
+
+.sinopsis-section {
+  margin-top: 20px;
+}
+
+.sinopsis-section h3 {
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: #111;
+  margin-bottom: 8px;
+}
+
+.sinopsis-section p {
+  font-size: 11px;
+  color: #555;
+  line-height: 1.7;
+  text-transform: uppercase;
+}
+
+/* ================================
+   MIDDLE COL - FILM INFO
+================================ */
+.mid-col {
+  padding-top: 4px;
+}
+
+.film-title {
+  font-size: 18px;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: #111;
+  margin-bottom: 6px;
+}
+
+.film-meta {
+  font-size: 10px;
+  color: #888;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin-bottom: 24px;
+}
+
+.info-block {
+  margin-bottom: 20px;
+}
+
+.info-block h4 {
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: #333;
+  margin-bottom: 6px;
+}
+
+.info-block p {
+  font-size: 11px;
+  color: #555;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  line-height: 1.6;
+}
+
+/* ================================
+   RIGHT COL - DATE & TIME PICKER
+================================ */
+.right-col {
+  padding-top: 4px;
+}
+
+.section-title {
+  font-size: 16px;
+  font-weight: 800;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: #111;
+  margin-bottom: 16px;
+}
+
+/* DATE GRID */
+.date-grid {
+  display: flex;
+  gap: 6px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+.date-btn {
+  border: 1px solid #ddd;
+  background: #f7f8fa;
+  padding: 10px 0;
+  cursor: pointer;
+  text-align: center;
+  width: 70px;
+  flex: 0 0 70px;
+  transition: all 0.15s;
+}
+
+.date-btn:hover {
+  border-color: #3b6fa0;
+}
+
+.date-btn.active {
+  background: #1e3a5f;
+  border-color: #1e3a5f;
+  color: #fff;
+}
+
+.date-btn.disabled,
+.date-btn:disabled {
+  background: #f0f0f0;
+  border-color: #e0e0e0;
+  color: #bbb;
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.date-btn .month-label {
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  opacity: 0.7;
+  display: block;
+}
+
+.date-btn .day-num {
+  font-size: 20px;
+  font-weight: 800;
+  display: block;
+  line-height: 1.1;
+}
+
+.date-btn .day-name {
+  font-size: 9px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  opacity: 0.7;
+  display: block;
+}
+
+/* TIME GRID */
+.time-grid {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 24px;
+}
+
+.time-btn {
+  border: 1px solid #ccc;
+  background: #fff;
+  padding: 14px 0;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: all 0.15s;
+  width: 100px;
+  flex: 0 0 100px;
+  text-align: center;
+}
+
+.time-btn:hover {
+  border-color: #3b6fa0;
+  color: #3b6fa0;
+}
+
+.time-btn.active {
+  background: #1e3a5f;
+  border-color: #1e3a5f;
+  color: #fff;
+}
+
+/* ACTION ROW */
+.action-row {
+  display: none;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 16px;
+  padding-top: 16px;
+  border-top: 1px solid #eee;
+  flex-wrap: wrap;
+}
+
+.action-row.visible {
+  display: flex;
+}
+
+.selected-label {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  color: #888;
+  flex: 1 1 auto;
+}
+
+/* ================================
+   BUTTON PRIMARY
+================================ */
+.btn-primary {
+  background: #111;
+  color: #fff;
+  border: none;
+  padding: 14px 24px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background 0.2s;
+  white-space: nowrap;
+  width: 100%;
+}
+
+.btn-primary:hover {
+  background: #333;
+}
+
+.btn-primary:disabled {
+  background: #ccc;
+  cursor: not-allowed;
+}
+
+/* ================================
+   TABLET - 768px s/d 1023px
+================================ */
+@media (min-width: px) and (max-width: 1023px) {
+  .layout {
+    grid-template-columns: 220px 1fr;
+    grid-template-rows: auto auto;
+  }
+
+  /* Poster kiri, info film kanan di baris pertama */
+  .left-col {
+    grid-column: 1;
+    grid-row: 1 / 3;
+  }
+
+  .mid-col {
+    grid-column: 2;
+    grid-row: 1;
+  }
+
+  /* Date/time picker full width di baris kedua */
+  .right-col {
+    grid-column: 2;
+    grid-row: 2;
+  }
+
+  .btn-primary {
+    width: auto;
+  }
+}
+
+/* ================================
+   MOBILE - max 767px
+================================ */
+@media (max-width: 767px) {
+  .header {
+    padding: 14px 16px;
+  }
+
+  .header h1 {
+    font-size: 18px;
+  }
+
+  .main-card {
+    padding: 16px 14px 40px;
+  }
+
+  /* 1 kolom, semua stack ke bawah */
+  .layout {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  /* Poster lebih kecil di mobile, landscape ratio */
+  .poster-placeholder {
+    aspect-ratio: 16/9;
+    max-height: 220px;
+  }
+
+  .poster-title {
+    font-size: 18px;
+  }
+
+  .film-title {
+    font-size: 16px;
+  }
+
+  .section-title {
+    font-size: 14px;
+  }
+
+  /* Tanggal scroll horizontal di mobile */
+  .date-grid {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    padding-bottom: 8px;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+
+  .date-grid::-webkit-scrollbar {
+    display: none;
+  }
+
+  .date-btn {
+    flex: 0 0 auto;
+    min-width: 60px;
+  }
+
+  /* Waktu 3 per baris di mobile */
+  .time-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+  }
+
+  .time-btn {
+    min-width: unset;
+    padding: 12px 8px;
+    font-size: 13px;
+  }
+
+  /* Action row stack vertikal */
+  .action-row {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 10px;
+  }
+
+  .selected-label {
+    text-align: center;
+  }
+
+  .btn-primary {
+    width: 100%;
+    padding: 16px;
+    font-size: 13px;
+  }
+}
